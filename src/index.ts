@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import express from 'express';
+import express, { Request, Response } from 'express';
 
 import userRouter from './routes/userRoutes';
 
@@ -8,6 +8,10 @@ const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
+
+app.get('/', (req: Request, res: Response) =>
+  res.send('Welcome to Node Typescript tutorial')
+);
 
 app.use('/api/v1/users', userRouter);
 
