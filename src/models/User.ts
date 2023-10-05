@@ -36,7 +36,7 @@ export interface UserDocument extends Document {
   state: string | null;
   country: string | null;
   centralName: string | undefined;
-  role: 'super admin' | 'admin' | 'customer' | 'guest' | 'partner';
+  role: 'super-admin' | 'admin' | 'customer' | 'guest' | 'partner';
   provider: string | undefined;
   assignStays: mongoose.Types.ObjectId[];
   permissions: string[];
@@ -210,7 +210,7 @@ const UserSchema = new Schema<UserDocument>(
       type: String,
       required: [true, 'Please provide a role'],
       enum: {
-        values: ['super admin', 'admin', 'customer', 'guest', 'partner'],
+        values: ['super-admin', 'admin', 'customer', 'guest', 'partner'],
         message: '{VALUE} is not supported',
       },
     },
